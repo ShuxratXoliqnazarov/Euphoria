@@ -36,33 +36,41 @@ export default function Hero() {
         </Link>
       </div>
 
-      <button
-        type="button"
-        onClick={() => go(-1)}
-        aria-label="Previous slide"
-        className="absolute top-1/2 left-8 hidden -translate-y-1/2 rounded-full bg-white/15 p-2 text-white backdrop-blur-sm transition-all duration-200 hover:scale-110 hover:bg-white hover:text-dark active:scale-95 md:block"
-      >
-        <ChevronLeft className="size-8 md:size-10" />
-      </button>
-      <button
-        type="button"
-        onClick={() => go(1)}
-        aria-label="Next slide"
-        className="absolute top-1/2 right-8 hidden -translate-y-1/2 rounded-full bg-white/15 p-2 text-white backdrop-blur-sm transition-all duration-200 hover:scale-110 hover:bg-white hover:text-dark active:scale-95 md:block"
-      >
-        <ChevronRight className="size-8 md:size-10" />
-      </button>
+      {/*
+        Стрелки — рядом с точками пагинации, не сбоку: на md/lg (768–1279px) текст заголовка
+        подъезжает почти к самому краю секции (pl-[5%]), и боковые стрелки на фиксированном
+        left-8/right-8 залезали прямо на слово "Value". Внизу коллизий с текстом не бывает.
+      */}
+      <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 items-center gap-4">
+        <button
+          type="button"
+          onClick={() => go(-1)}
+          aria-label="Previous slide"
+          className="hidden size-9 shrink-0 place-items-center rounded-full bg-white/15 text-white backdrop-blur-sm transition-all duration-200 hover:scale-110 hover:bg-white hover:text-dark active:scale-95 md:grid"
+        >
+          <ChevronLeft className="size-5" />
+        </button>
 
-      <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2">
-        {SLIDES.map((item, i) => (
-          <button
-            key={item.title}
-            type="button"
-            onClick={() => setActive(i)}
-            aria-label={`Slide ${i + 1}`}
-            className={`h-1.5 w-16 cursor-pointer transition-colors duration-300 first:rounded-l-full last:rounded-r-full ${i === active ? 'bg-white' : 'bg-white/40 hover:bg-white/70'}`}
-          />
-        ))}
+        <div className="flex">
+          {SLIDES.map((item, i) => (
+            <button
+              key={item.title}
+              type="button"
+              onClick={() => setActive(i)}
+              aria-label={`Slide ${i + 1}`}
+              className={`h-1.5 w-16 cursor-pointer transition-colors duration-300 first:rounded-l-full last:rounded-r-full ${i === active ? 'bg-white' : 'bg-white/40 hover:bg-white/70'}`}
+            />
+          ))}
+        </div>
+
+        <button
+          type="button"
+          onClick={() => go(1)}
+          aria-label="Next slide"
+          className="hidden size-9 shrink-0 place-items-center rounded-full bg-white/15 text-white backdrop-blur-sm transition-all duration-200 hover:scale-110 hover:bg-white hover:text-dark active:scale-95 md:grid"
+        >
+          <ChevronRight className="size-5" />
+        </button>
       </div>
     </section>
   )
