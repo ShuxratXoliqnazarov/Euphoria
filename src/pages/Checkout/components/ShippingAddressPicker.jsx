@@ -11,12 +11,12 @@ export default function ShippingAddressPicker({ sameAsBilling, onChangeSameAsBil
     <div className="flex flex-col gap-3">
       <p className="text-sm text-gray">Select the address that matches your card or payment method.</p>
 
-      <label className={`flex cursor-pointer items-center gap-3 rounded-lg border p-4 text-sm font-semibold ${sameAsBilling ? 'border-primary bg-primary/5' : 'border-border'}`}>
+      <label className={`flex cursor-pointer items-center gap-3 rounded-lg border p-4 text-sm font-semibold transition-colors duration-200 ${sameAsBilling ? 'border-primary bg-primary/5' : 'border-border hover:border-dark/30'}`}>
         <input type="radio" name="shipping-mode" checked={sameAsBilling} onChange={() => onChangeSameAsBilling(true)} className="accent-primary" />
         Same as Billing address
       </label>
 
-      <label className={`flex cursor-pointer items-center gap-3 rounded-lg border p-4 text-sm font-semibold ${!sameAsBilling ? 'border-primary bg-primary/5' : 'border-border'}`}>
+      <label className={`flex cursor-pointer items-center gap-3 rounded-lg border p-4 text-sm font-semibold transition-colors duration-200 ${!sameAsBilling ? 'border-primary bg-primary/5' : 'border-border hover:border-dark/30'}`}>
         <input type="radio" name="shipping-mode" checked={!sameAsBilling} onChange={() => onChangeSameAsBilling(false)} className="accent-primary" />
         Use a different shipping address
       </label>
@@ -26,8 +26,8 @@ export default function ShippingAddressPicker({ sameAsBilling, onChangeSameAsBil
           {addresses.map((address) => (
             <label
               key={address.id}
-              className={`flex cursor-pointer items-start gap-3 rounded-lg border p-4 text-sm ${
-                selectedId === address.id ? 'border-primary bg-primary/5' : 'border-border'
+              className={`flex cursor-pointer items-start gap-3 rounded-lg border p-4 text-sm transition-colors duration-200 ${
+                selectedId === address.id ? 'border-primary bg-primary/5' : 'border-border hover:border-dark/30'
               }`}
             >
               <input

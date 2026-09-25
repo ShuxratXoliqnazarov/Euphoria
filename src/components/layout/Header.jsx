@@ -43,7 +43,7 @@ export default function Header() {
             <Link
               key={link.label}
               to={link.to}
-              className={`text-[22px] ${isActive(link.to) ? 'font-medium text-dark' : 'text-gray hover:text-dark'}`}
+              className={`text-[22px] transition-colors duration-200 ${isActive(link.to) ? 'font-medium text-dark' : 'text-gray hover:text-dark'}`}
             >
               {link.label}
             </Link>
@@ -58,7 +58,7 @@ export default function Header() {
               key={label}
               to={to}
               aria-label={label}
-              className="grid size-11 place-items-center rounded-lg bg-light text-gray hover:bg-primary hover:text-white"
+              className="grid size-11 place-items-center rounded-lg bg-light text-gray transition-all duration-200 hover:scale-110 hover:bg-primary hover:text-white active:scale-95"
             >
               <Icon className="size-5" />
             </Link>
@@ -67,7 +67,7 @@ export default function Header() {
             type="button"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Menu"
-            className="grid size-11 place-items-center rounded-lg bg-light lg:hidden"
+            className="grid size-11 place-items-center rounded-lg bg-light transition-all duration-200 hover:scale-110 hover:bg-primary hover:text-white active:scale-95 lg:hidden"
           >
             {menuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>

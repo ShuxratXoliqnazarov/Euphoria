@@ -13,16 +13,26 @@ export default function Gallery({ images, alt }) {
             key={image}
             type="button"
             onClick={() => setActive(i)}
-            className={`overflow-hidden rounded-lg border-2 ${i === active ? 'border-dark' : 'border-transparent'}`}
+            className={`overflow-hidden rounded-lg border-2 transition-colors duration-200 ${i === active ? 'border-dark' : 'border-transparent hover:border-border'}`}
           >
             <img src={image} alt="" className="size-[70px] object-cover" />
           </button>
         ))}
         <div className="hidden flex-col items-center gap-3 md:flex">
-          <button type="button" onClick={() => go(-1)} aria-label="Previous image" className="grid size-6 place-items-center rounded-full bg-white">
+          <button
+            type="button"
+            onClick={() => go(-1)}
+            aria-label="Previous image"
+            className="grid size-6 place-items-center rounded-full bg-white transition-all duration-200 hover:scale-110 hover:bg-primary hover:text-white active:scale-95"
+          >
             <ChevronUp className="size-4" />
           </button>
-          <button type="button" onClick={() => go(1)} aria-label="Next image" className="grid size-6 place-items-center rounded-full bg-dark text-white">
+          <button
+            type="button"
+            onClick={() => go(1)}
+            aria-label="Next image"
+            className="grid size-6 place-items-center rounded-full bg-dark text-white transition-all duration-200 hover:scale-110 hover:bg-primary active:scale-95"
+          >
             <ChevronDown className="size-4" />
           </button>
         </div>

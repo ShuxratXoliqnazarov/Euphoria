@@ -8,10 +8,16 @@ import QuantityStepper from './QuantityStepper'
 export default function CartItemRow({ product, line, onQtyChange, onRemove }) {
   return (
     <div className="flex flex-wrap items-center gap-4 border-b border-border py-6 sm:flex-nowrap sm:gap-6">
-      <Link to={productPath(product.id)} className="flex min-w-[220px] flex-1 items-center gap-4">
-        <img src={product.image} alt={product.title} className="size-20 shrink-0 rounded-lg bg-light object-cover" />
+      <Link to={productPath(product.id)} className="group flex min-w-[220px] flex-1 items-center gap-4">
+        <span className="size-20 shrink-0 overflow-hidden rounded-lg bg-light">
+          <img
+            src={product.image}
+            alt={product.title}
+            className="size-full object-cover transition-transform duration-300 group-hover:scale-110"
+          />
+        </span>
         <span className="min-w-0">
-          <span className="block truncate font-semibold hover:text-primary">{product.title}</span>
+          <span className="block truncate font-semibold transition-colors group-hover:text-primary">{product.title}</span>
           {line.color && <span className="mt-1 block text-sm text-gray">Color : {line.color}</span>}
           {line.size && <span className="block text-sm text-gray">Size : {line.size}</span>}
         </span>
@@ -33,7 +39,7 @@ export default function CartItemRow({ product, line, onQtyChange, onRemove }) {
         type="button"
         onClick={onRemove}
         aria-label="Remove item"
-        className="grid size-8 shrink-0 place-items-center rounded-full text-primary hover:bg-primary/10"
+        className="grid size-8 shrink-0 place-items-center rounded-full text-primary transition-all duration-200 hover:scale-110 hover:bg-primary/10 active:scale-90"
       >
         <Trash2 className="size-4" />
       </button>

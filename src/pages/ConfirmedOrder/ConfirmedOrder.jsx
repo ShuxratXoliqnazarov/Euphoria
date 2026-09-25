@@ -21,7 +21,7 @@ export default function ConfirmedOrder() {
           type="button"
           onClick={() => setDismissed(true)}
           aria-label="Close"
-          className="absolute top-4 right-4 text-gray hover:text-dark"
+          className="absolute top-4 right-4 text-gray transition-all duration-200 hover:scale-110 hover:text-dark"
         >
           <X className="size-5" />
         </button>

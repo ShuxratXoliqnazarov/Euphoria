@@ -22,9 +22,9 @@ export default function ProductCard({ product }) {
           type="button"
           onClick={() => setLiked(!liked)}
           aria-label="Add to wishlist"
-          className="absolute top-4 right-4 grid size-8 place-items-center rounded-full bg-white"
+          className="absolute top-4 right-4 grid size-8 place-items-center rounded-full bg-white transition-transform duration-200 hover:scale-[1.15] active:scale-90"
         >
-          <Heart className={`size-4 ${liked ? 'fill-primary text-primary' : 'text-dark'}`} />
+          <Heart className={`size-4 transition-colors ${liked ? 'fill-primary text-primary' : 'text-dark'}`} />
         </button>
       </div>
 

@@ -30,7 +30,7 @@ export default function Hero() {
         <p className="mt-6 text-xl md:mt-10 md:text-[32px]">{slide.text}</p>
         <Link
           to={ROUTES.PRODUCT_LIST}
-          className="mt-8 w-fit rounded-lg bg-white px-14 py-4 text-lg font-bold text-dark hover:bg-light md:mt-12 md:text-2xl"
+          className="mt-8 w-fit rounded-lg bg-white px-14 py-4 text-lg font-bold text-dark transition-all duration-200 hover:scale-[1.03] hover:bg-light active:scale-95 md:mt-12 md:text-2xl"
         >
           Shop Now
         </Link>
@@ -40,7 +40,7 @@ export default function Hero() {
         type="button"
         onClick={() => go(-1)}
         aria-label="Previous slide"
-        className="absolute top-1/2 left-8 hidden -translate-y-1/2 p-2 text-white md:block"
+        className="absolute top-1/2 left-8 hidden -translate-y-1/2 rounded-full bg-white/15 p-2 text-white backdrop-blur-sm transition-all duration-200 hover:scale-110 hover:bg-white hover:text-dark active:scale-95 md:block"
       >
         <ChevronLeft className="size-8 md:size-10" />
       </button>
@@ -48,7 +48,7 @@ export default function Hero() {
         type="button"
         onClick={() => go(1)}
         aria-label="Next slide"
-        className="absolute top-1/2 right-8 hidden -translate-y-1/2 p-2 text-white md:block"
+        className="absolute top-1/2 right-8 hidden -translate-y-1/2 rounded-full bg-white/15 p-2 text-white backdrop-blur-sm transition-all duration-200 hover:scale-110 hover:bg-white hover:text-dark active:scale-95 md:block"
       >
         <ChevronRight className="size-8 md:size-10" />
       </button>
@@ -60,7 +60,7 @@ export default function Hero() {
             type="button"
             onClick={() => setActive(i)}
             aria-label={`Slide ${i + 1}`}
-            className={`h-1.5 w-16 first:rounded-l-full last:rounded-r-full ${i === active ? 'bg-white' : 'bg-white/40'}`}
+            className={`h-1.5 w-16 cursor-pointer transition-colors duration-300 first:rounded-l-full last:rounded-r-full ${i === active ? 'bg-white' : 'bg-white/40 hover:bg-white/70'}`}
           />
         ))}
       </div>

@@ -12,7 +12,7 @@ export default function PaymentMethod() {
     <div>
       <p className="mb-4 text-sm text-gray">All transactions are secure and encrypted.</p>
 
-      <div className={`rounded-lg border p-4 ${method === 'card' ? 'border-primary' : 'border-border'}`}>
+      <div className={`rounded-lg border p-4 transition-colors duration-200 ${method === 'card' ? 'border-primary' : 'border-border hover:border-dark/30'}`}>
         <label className="flex cursor-pointer items-start gap-3">
           <input type="radio" name="payment" checked={method === 'card'} onChange={() => setMethod('card')} className="mt-1 accent-primary" />
           <span>
@@ -53,7 +53,7 @@ export default function PaymentMethod() {
         )}
       </div>
 
-      <label className={`mt-3 flex cursor-pointer items-start gap-3 rounded-lg border p-4 ${method === 'cod' ? 'border-primary' : 'border-border'}`}>
+      <label className={`mt-3 flex cursor-pointer items-start gap-3 rounded-lg border p-4 transition-colors duration-200 ${method === 'cod' ? 'border-primary' : 'border-border hover:border-dark/30'}`}>
         <input type="radio" name="payment" checked={method === 'cod'} onChange={() => setMethod('cod')} className="mt-1 accent-primary" />
         <span>
           <span className="block font-semibold">Cash on Delivery</span>
@@ -61,7 +61,7 @@ export default function PaymentMethod() {
         </span>
       </label>
 
-      <label className={`mt-3 flex cursor-pointer items-start gap-3 rounded-lg border p-4 ${method === 'paypal' ? 'border-primary' : 'border-border'}`}>
+      <label className={`mt-3 flex cursor-pointer items-start gap-3 rounded-lg border p-4 transition-colors duration-200 ${method === 'paypal' ? 'border-primary' : 'border-border hover:border-dark/30'}`}>
         <input type="radio" name="payment" checked={method === 'paypal'} onChange={() => setMethod('paypal')} className="mt-1 accent-primary" />
         <span className="font-semibold">PayPal</span>
       </label>

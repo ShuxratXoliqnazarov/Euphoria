@@ -32,8 +32,8 @@ export default function AccountSidebar() {
             <Link
               key={label}
               to={to}
-              className={`flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium ${
-                isActive ? 'bg-light text-dark' : 'text-gray hover:text-dark'
+              className={`flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium transition-colors duration-200 ${
+                isActive ? 'bg-light text-dark' : 'text-gray hover:bg-light/60 hover:text-dark'
               }`}
               style={isActive ? { boxShadow: 'inset 3px 0 0 var(--color-primary)' } : undefined}
             >
@@ -43,7 +43,10 @@ export default function AccountSidebar() {
           )
         })}
 
-        <button type="button" className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-danger">
+        <button
+          type="button"
+          className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-danger transition-colors duration-200 hover:bg-danger/10"
+        >
           <LogOut className="size-4.5" />
           Sign out
         </button>

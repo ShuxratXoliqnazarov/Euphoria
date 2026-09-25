@@ -3,7 +3,7 @@ const DEFAULT_LABEL = { billing: 'Default billing address', shipping: 'Default s
 // Карточка сохранённого адреса (Figma: раздел "Address" на My Info)
 export default function AddressCard({ address, onRemove, onSetDefault }) {
   return (
-    <div className="flex flex-col gap-3 rounded-xl bg-light p-5">
+    <div className="flex flex-col gap-3 rounded-xl bg-light p-5 transition-shadow duration-200 hover:shadow-md">
       <div>
         <p className="font-semibold">{address.fullName}</p>
         <p className="mt-1 text-sm text-gray">{address.phone}</p>

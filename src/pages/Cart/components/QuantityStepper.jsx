@@ -8,7 +8,7 @@ export default function QuantityStepper({ value, onChange }) {
         type="button"
         onClick={() => onChange(value - 1)}
         aria-label="Decrease quantity"
-        className="grid size-6 place-items-center rounded text-gray hover:bg-light hover:text-dark"
+        className="grid size-6 place-items-center rounded text-gray transition-all duration-200 hover:scale-110 hover:bg-light hover:text-dark active:scale-90"
       >
         <Minus className="size-3.5" />
       </button>
@@ -17,7 +17,7 @@ export default function QuantityStepper({ value, onChange }) {
         type="button"
         onClick={() => onChange(value + 1)}
         aria-label="Increase quantity"
-        className="grid size-6 place-items-center rounded text-gray hover:bg-light hover:text-dark"
+        className="grid size-6 place-items-center rounded text-gray transition-all duration-200 hover:scale-110 hover:bg-light hover:text-dark active:scale-90"
       >
         <Plus className="size-3.5" />
       </button>
