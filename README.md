@@ -63,12 +63,12 @@ src/
 | Create New Password | `/new-password` | `pages/CreateNewPassword/CreateNewPassword.jsx` | Shuhrat |
 | Contact Details | `/account` | `pages/ContactDetails/ContactDetails.jsx` | — |
 | Add Address | `/account/add-address` | `pages/AddAddress/AddAddress.jsx` | — |
-| wishlist + Empty wishlist | `/account/wishlist` | `pages/Wishlist/Wishlist.jsx` | — |
-| My Order | `/account/orders` | `pages/MyOrders/MyOrders.jsx` | — |
-| Order Details | `/account/orders/:id` | `pages/OrderDetails/OrderDetails.jsx` | — |
+| wishlist + Empty wishlist | `/account/wishlist` | `pages/Wishlist/Wishlist.jsx` | Nozina |
+| My Order | `/account/orders` | `pages/MyOrders/MyOrders.jsx` | Nozina |
+| Order Details | `/account/orders/:id` | `pages/OrderDetails/OrderDetails.jsx` | Nozina |
 | Header (общий) | — | `components/layout/Header.jsx` | Shuhrat |
 | Footer (общий) | — | `components/layout/Footer.jsx` | Shuhrat |
-| Error Page | `*` | `pages/NotFound/NotFound.jsx` | — |
+| Error Page | `*` | `pages/NotFound/NotFound.jsx` | Nozina |
 
 > Empty Cart / Empty wishlist — это не отдельные файлы, а состояние страницы Cart / Wishlist (когда список пустой).
 
