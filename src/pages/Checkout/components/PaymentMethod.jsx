@@ -1,63 +1,70 @@
 import { useState } from 'react'
-import { Banknote, CreditCard, Wallet } from 'lucide-react'
 
-const METHODS = [
-  { id: 'card', label: 'Credit Card', icon: CreditCard },
-  { id: 'paypal', label: 'PayPal', icon: Wallet },
-  { id: 'cod', label: 'Cash on Delivery', icon: Banknote },
-]
+const FIELD_CLASS = 'w-full rounded-lg bg-light px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-primary'
 
-const FIELD_CLASS =
-  'w-full rounded-lg border border-border bg-white px-4 py-3 text-sm outline-none focus:border-primary'
+const BRANDS = ['G Pay', 'VISA', 'PayPal', 'Paypass']
 
-// Способ оплаты — табы (Figma: "Payment Method"). Для карты — доп. поля.
+// Способ оплаты — список радио-опций (Figma: "Payment Method")
 export default function PaymentMethod() {
   const [method, setMethod] = useState('card')
 
   return (
-    <div className="flex flex-col gap-5">
-      <div className="grid grid-cols-3 gap-3">
-        {METHODS.map(({ id, label, icon: Icon }) => (
-          <button
-            key={id}
-            type="button"
-            onClick={() => setMethod(id)}
-            className={`flex flex-col items-center gap-2 rounded-lg border p-4 text-xs font-medium sm:text-sm ${
-              method === id ? 'border-primary bg-primary/5 text-primary' : 'border-border text-gray hover:text-dark'
-            }`}
-          >
-            <Icon className="size-5" />
-            {label}
-          </button>
-        ))}
+    <div>
+      <p className="mb-4 text-sm text-gray">All transactions are secure and encrypted.</p>
+
+      <div className={`rounded-lg border p-4 ${method === 'card' ? 'border-primary' : 'border-border'}`}>
+        <label className="flex cursor-pointer items-start gap-3">
+          <input type="radio" name="payment" checked={method === 'card'} onChange={() => setMethod('card')} className="mt-1 accent-primary" />
+          <span>
+            <span className="block font-semibold">Credit Card</span>
+            <span className="text-sm text-gray">We accept all major credit cards.</span>
+          </span>
+        </label>
+
+        {method === 'card' && (
+          <div className="mt-5 flex flex-col gap-5 pl-7">
+            <div className="flex flex-wrap gap-3">
+              {BRANDS.map((brand) => (
+                <span key={brand} className="rounded-lg border border-border px-4 py-2 text-xs font-semibold">
+                  {brand}
+                </span>
+              ))}
+            </div>
+
+            <div className="grid gap-5 sm:grid-cols-2">
+              <label>
+                <span className="mb-2 block text-sm font-medium text-dark">Card Number</span>
+                <input required type="text" placeholder="Card number" className={FIELD_CLASS} />
+              </label>
+              <label>
+                <span className="mb-2 block text-sm font-medium text-dark">Name of Card</span>
+                <input required type="text" placeholder="Name of card" className={FIELD_CLASS} />
+              </label>
+              <label>
+                <span className="mb-2 block text-sm font-medium text-dark">Expiration Date</span>
+                <input required type="text" placeholder="MM/YY" className={FIELD_CLASS} />
+              </label>
+              <label>
+                <span className="mb-2 block text-sm font-medium text-dark">Security Code</span>
+                <input required type="text" placeholder="CVV" className={FIELD_CLASS} />
+              </label>
+            </div>
+          </div>
+        )}
       </div>
 
-      {method === 'card' && (
-        <div className="grid gap-5 sm:grid-cols-2">
-          <label className="sm:col-span-2">
-            <span className="mb-2 block text-sm font-medium text-dark">Card Number</span>
-            <input required type="text" placeholder="1234 5678 9012 3456" className={FIELD_CLASS} />
-          </label>
-          <label>
-            <span className="mb-2 block text-sm font-medium text-dark">Expiry Date</span>
-            <input required type="text" placeholder="MM/YY" className={FIELD_CLASS} />
-          </label>
-          <label>
-            <span className="mb-2 block text-sm font-medium text-dark">CVV</span>
-            <input required type="text" placeholder="123" className={FIELD_CLASS} />
-          </label>
-        </div>
-      )}
+      <label className={`mt-3 flex cursor-pointer items-start gap-3 rounded-lg border p-4 ${method === 'cod' ? 'border-primary' : 'border-border'}`}>
+        <input type="radio" name="payment" checked={method === 'cod'} onChange={() => setMethod('cod')} className="mt-1 accent-primary" />
+        <span>
+          <span className="block font-semibold">Cash on Delivery</span>
+          <span className="text-sm text-gray">Pay with cash upon delivery.</span>
+        </span>
+      </label>
 
-      {method === 'paypal' && (
-        <p className="rounded-lg bg-light p-4 text-sm text-gray">
-          Вы будете перенаправлены на PayPal для завершения оплаты после оформления заказа.
-        </p>
-      )}
-
-      {method === 'cod' && (
-        <p className="rounded-lg bg-light p-4 text-sm text-gray">Оплата наличными курьеру при получении заказа.</p>
-      )}
+      <label className={`mt-3 flex cursor-pointer items-start gap-3 rounded-lg border p-4 ${method === 'paypal' ? 'border-primary' : 'border-border'}`}>
+        <input type="radio" name="payment" checked={method === 'paypal'} onChange={() => setMethod('paypal')} className="mt-1 accent-primary" />
+        <span className="font-semibold">PayPal</span>
+      </label>
     </div>
   )
 }

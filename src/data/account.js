@@ -2,34 +2,19 @@
 // Когда появится бэкенд/авторизация — заменить на данные из API.
 
 export const profile = {
-  name: 'Jaden Smith',
-  email: 'jaden.smith@email.com',
-  phone: '+1 (555) 012-3456',
+  firstName: 'Jhanvi',
+  name: 'Jhanvi Shah',
+  email: 'Jhanvi@gmail.com',
+  phone: '8980252445',
+  password: '••••••••',
 }
 
+const ADDRESS_LINE = '1/4 Pragatinagar Flats, opp. Jain derasar, near Jain derasar, Vijaynagar road'
+
+// defaultType: какой пилюлей подсвечивать карточку ("billing" / "shipping" / null)
 export const defaultAddresses = [
-  {
-    id: 1,
-    label: 'Home',
-    fullName: 'Jaden Smith',
-    line: '2118 Thornridge Cir, Syracuse',
-    cityState: 'Connecticut 35624',
-    phone: '+1 (555) 012-3456',
-  },
-  {
-    id: 2,
-    label: 'Office',
-    fullName: 'Jaden Smith',
-    line: '2715 Ash Dr, San Jose',
-    cityState: 'South Dakota 83475',
-    phone: '+1 (555) 012-3456',
-  },
-  {
-    id: 3,
-    label: 'Home',
-    fullName: 'Jaden Smith',
-    line: '4517 Washington Ave, Manchester',
-    cityState: 'Kentucky 39495',
-    phone: '+1 (555) 012-3456',
-  },
+  { id: 1, label: 'Home', fullName: profile.name, phone: profile.phone, line: ADDRESS_LINE, defaultType: 'billing' },
+  { id: 2, label: 'Home', fullName: profile.name, phone: profile.phone, line: ADDRESS_LINE, defaultType: 'shipping' },
+  { id: 3, label: 'Office', fullName: profile.name, phone: profile.phone, line: ADDRESS_LINE, defaultType: null },
+  { id: 4, label: 'Home2', fullName: profile.name, phone: profile.phone, line: ADDRESS_LINE, defaultType: null },
 ]

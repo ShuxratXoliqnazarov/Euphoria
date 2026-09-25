@@ -50,5 +50,10 @@ export function useAddresses() {
       addresses = addresses.filter((address) => address.id !== id)
       emit()
     },
+
+    setDefault(id) {
+      addresses = addresses.map((address) => (address.id === id ? { ...address, defaultType: 'billing' } : address))
+      emit()
+    },
   }
 }

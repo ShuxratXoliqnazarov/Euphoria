@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import Button from './Button'
 
-// Поле промокода: используется на Cart и Checkout
-export default function CouponForm({ className = '' }) {
+// Поле промокода: используется на Cart и Checkout.
+// onApply — необязательный колбэк, срабатывает при отправке непустого кода (проверки нет, бэкенда нет).
+export default function CouponForm({ className = '', onApply }) {
   const [code, setCode] = useState('')
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    // Проверки промокода нет — бэкенда пока нет, форма для вёрстки
+    if (code.trim()) onApply?.(code.trim())
   }
 
   return (
