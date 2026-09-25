@@ -19,7 +19,7 @@ export default function Hero() {
       <img
         src={hero}
         alt=""
-        className="absolute inset-0 h-full w-full object-cover object-[70%_center] opacity-40 md:opacity-100"
+        className="absolute inset-0 h-full w-full object-cover object-[70%_15%] opacity-40 md:object-[70%_center] md:opacity-100"
       />
 
       <div className="relative container-page flex min-h-[420px] flex-col justify-center py-16 text-white md:min-h-[716px] md:pl-[5%] xl:pl-[5%]">
