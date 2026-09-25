@@ -1,0 +1,83 @@
+/*
+  В Figma шрифты Causten и Core Sans C — их нет в Google Fonts.
+  Ближайшие бесплатные замены: Outfit (≈ Causten) и Poppins (≈ Core Sans C).
+  Если кто-то скачает оригинальные .woff2 — положить в src/assets/fonts и подключить через @font-face.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&family=Cookie&display=swap');
+@import 'tailwindcss';
+
+/*
+  Дизайн-токены Euphoria (Styleguide в Figma).
+  Используются как обычные классы: bg-primary, text-dark, text-gray, font-accent ...
+  Если в Figma цвет другой — меняем ТОЛЬКО здесь.
+*/
+@theme {
+  --color-primary: #8a33fd;
+  --color-primary-dark: #6620c1;
+  --color-dark: #3c4242;
+  --color-gray: #807d7e;
+  --color-light: #f6f6f6;
+  --color-border: #bebcbd;
+  --color-footer: #3c4242;
+  --color-danger: #ee1d52;
+  --color-star: #edd146;
+
+  --font-main: 'Causten', 'Outfit', sans-serif;
+  --font-accent: 'Core Sans C', 'Poppins', sans-serif;
+  --font-logo: 'Cookie', cursive;
+
+  --breakpoint-xs: 480px;
+}
+
+@layer base {
+  body {
+    @apply bg-white font-main text-dark antialiased;
+  }
+
+  a,
+  button {
+    @apply transition-colors;
+  }
+
+  button {
+    @apply cursor-pointer;
+  }
+}
+
+/* Центрированный контейнер под ширину макета (1440 − 2×100) */
+@utility container-page {
+  @apply mx-auto w-full max-w-[1240px] px-4 md:px-6 xl:px-0;
+}
+
+/* Двойной ползунок цены: два input[type=range] друг на друге, кликабельны только кружки */
+@utility range-thumb {
+  appearance: none;
+  pointer-events: none;
+  background: transparent;
+  &::-webkit-slider-thumb {
+    appearance: none;
+    pointer-events: auto;
+    width: 18px;
+    height: 18px;
+    border-radius: 9999px;
+    background: var(--color-primary);
+    cursor: pointer;
+  }
+  &::-moz-range-thumb {
+    pointer-events: auto;
+    width: 18px;
+    height: 18px;
+    border: 0;
+    border-radius: 9999px;
+    background: var(--color-primary);
+    cursor: pointer;
+  }
+}
+
+/* Горизонтальный скролл без полосы (слайдеры) */
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
