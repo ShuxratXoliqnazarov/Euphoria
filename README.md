@@ -52,17 +52,17 @@ src/
 | home page | `/` | `pages/Home/Home.jsx` | Shuhrat |
 | Products List page | `/products` | `pages/ProductList/ProductList.jsx` | Shuhrat |
 | Product detail Page | `/product/:id` | `pages/ProductDetails/ProductDetails.jsx` | Shuhrat |
-| Cart Page + Empty Cart | `/cart` | `pages/Cart/Cart.jsx` | — |
-| Checkout | `/checkout` | `pages/Checkout/Checkout.jsx` | — |
-| Confirmed Order | `/order-confirmed` | `pages/ConfirmedOrder/ConfirmedOrder.jsx` | — |
+| Cart Page + Empty Cart | `/cart` | `pages/Cart/Cart.jsx` | Burhoniddin |
+| Checkout | `/checkout` | `pages/Checkout/Checkout.jsx` | Burhoniddin |
+| Confirmed Order | `/order-confirmed` | `pages/ConfirmedOrder/ConfirmedOrder.jsx` | Burhoniddin |
 | Sign In Page | `/sign-in` | `pages/SignIn/SignIn.jsx` | Shuhrat |
 | Sign up page | `/sign-up` | `pages/SignUp/SignUp.jsx` | Shuhrat |
 | Reset Password | `/reset-password` | `pages/ResetPassword/ResetPassword.jsx` | Shuhrat |
 | Check Email | `/check-email` | `pages/CheckEmail/CheckEmail.jsx` | Shuhrat |
 | Verification | `/verification` | `pages/Verification/Verification.jsx` | Shuhrat |
 | Create New Password | `/new-password` | `pages/CreateNewPassword/CreateNewPassword.jsx` | Shuhrat |
-| Contact Details | `/account` | `pages/ContactDetails/ContactDetails.jsx` | — |
-| Add Address | `/account/add-address` | `pages/AddAddress/AddAddress.jsx` | — |
+| Contact Details | `/account` | `pages/ContactDetails/ContactDetails.jsx` | Burhoniddin |
+| Add Address | `/account/add-address` | `pages/AddAddress/AddAddress.jsx` | Burhoniddin |
 | wishlist + Empty wishlist | `/account/wishlist` | `pages/Wishlist/Wishlist.jsx` | — |
 | My Order | `/account/orders` | `pages/MyOrders/MyOrders.jsx` | — |
 | Order Details | `/account/orders/:id` | `pages/OrderDetails/OrderDetails.jsx` | — |
