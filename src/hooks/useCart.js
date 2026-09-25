@@ -12,9 +12,9 @@ function readInitial() {
     /* localStorage недоступен — начинаем с демо-корзины */
   }
   return [
-    { productId: 1, qty: 1 },
-    { productId: 6, qty: 2 },
-    { productId: 19, qty: 1 },
+    { productId: 11, qty: 1, color: 'Yellow', size: 'M', shipping: 0 },
+    { productId: 3, qty: 2, color: 'Levender', size: 'XXL', shipping: 0 },
+    { productId: 1, qty: 2, color: 'Black', size: 'XXL', shipping: 5 },
   ]
 }
 

@@ -1,26 +1,40 @@
-import { Trash2 } from 'lucide-react'
+const DEFAULT_LABEL = { billing: 'Default billing address', shipping: 'Default shipping address' }
 
-// Карточка сохранённого адреса в "Address Book" (Figma: Contact Details)
-export default function AddressCard({ address, onDelete }) {
+// Карточка сохранённого адреса (Figma: раздел "Address" на My Info)
+export default function AddressCard({ address, onRemove, onSetDefault }) {
   return (
-    <div className="flex flex-col gap-3 rounded-xl border border-border p-5">
-      <div className="flex items-center justify-between">
-        <span className="rounded-full bg-light px-3 py-1 text-xs font-semibold">{address.label}</span>
-        <button
-          type="button"
-          onClick={onDelete}
-          aria-label="Delete address"
-          className="grid size-8 place-items-center rounded-full text-gray hover:bg-danger/10 hover:text-danger"
-        >
-          <Trash2 className="size-4" />
-        </button>
+    <div className="flex flex-col gap-3 rounded-xl bg-light p-5">
+      <div>
+        <p className="font-semibold">{address.fullName}</p>
+        <p className="mt-1 text-sm text-gray">{address.phone}</p>
+        <p className="mt-2 text-sm text-gray">{address.line}</p>
       </div>
 
-      <div className="text-sm">
-        <p className="font-medium">{address.fullName}</p>
-        <p className="mt-1 text-gray">{address.line}</p>
-        <p className="text-gray">{address.cityState}</p>
-        <p className="mt-1 text-gray">{address.phone}</p>
+      <div className="flex flex-wrap gap-2">
+        <span className="rounded-full border border-border px-3 py-1 text-xs font-medium">{address.label}</span>
+        {address.defaultType && (
+          <span className="rounded-full border border-border px-3 py-1 text-xs font-medium">
+            {DEFAULT_LABEL[address.defaultType]}
+          </span>
+        )}
+      </div>
+
+      <div className="flex items-center gap-3 text-sm">
+        <button type="button" onClick={onRemove} className="font-medium text-danger hover:underline">
+          Remove
+        </button>
+        <span className="text-border">|</span>
+        <button type="button" className="font-medium hover:underline">
+          Edit
+        </button>
+        {!address.defaultType && (
+          <>
+            <span className="text-border">|</span>
+            <button type="button" onClick={onSetDefault} className="font-medium text-primary hover:underline">
+              Set as default
+            </button>
+          </>
+        )}
       </div>
     </div>
   )

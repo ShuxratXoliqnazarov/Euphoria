@@ -10,8 +10,8 @@ export default function EmptyCart() {
         <ShoppingBasket className="size-11" />
       </span>
       <div>
-        <h2 className="text-xl font-semibold">Your cart is currently empty</h2>
-        <p className="mt-2 text-gray">Looks like you haven't added anything yet — let's fix that.</p>
+        <h2 className="text-xl font-semibold">Your cart is empty and sad :(</h2>
+        <p className="mt-2 text-gray">Add something to make it happy!</p>
       </div>
       <Button to={ROUTES.PRODUCT_LIST}>Continue Shopping</Button>
     </div>
